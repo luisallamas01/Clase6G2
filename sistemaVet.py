@@ -37,8 +37,9 @@ class Mascota:
 
 class sistemaV:
     def __init__(self):
-        self.__lista_mascotas = []
-        # self.__lista_mascotas = {}
+        #self.__lista_mascotas = []
+        self.__lista_c = {}
+        self.__lista_f = {}
 
     def verificarExiste(self,historia):
         for m in self.__lista_mascotas:
@@ -48,17 +49,17 @@ class sistemaV:
         return False
 
     def verNumeroMascotas(self):
-        return len(self.__lista_mascotas) 
+        return len(self.__lista_c) 
+        return len(self.__lista_f)
 
     def ingresarMascota(self,mascota):
-        self.__lista_mascotas.append(mascota) 
-        # self.__lista_mascotas[mascota.verHistoria()]=mascota
+        # self.__lista_mascotas.append(mascota) 
+        self.__lista_mascotas[mascota.verHistoria()]=mascota
 
     def verFechaIngreso(self,historia):
         #busco la mascota y devuelvo el atributo solicitado
-        for masc in self.__lista_mascotas:
-            if historia == masc.verHistoria():
-                return masc.verFecha() 
+        if historia in self.__lista_mascotas:
+                return self.__lista_c[historia].verFecha() 
         return None
 
     def verMedicamento(self,historia):

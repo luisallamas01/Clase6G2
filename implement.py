@@ -1,5 +1,11 @@
 from sistemaVet import *
-
+import datetime 
+x=datetime(2023,2,23)
+print(x.strftime('%x'))
+f=[]
+g=0
+p=[]
+o=0
 def main():
     servicio_hospitalario = sistemaV()
     while True:
@@ -12,19 +18,34 @@ def main():
                        \n6- Salir 
                        \nUsted ingresó la opción: ''' ))
 
-        if menu == 1:
-            if servicio_hospitalario.verNumeroMascotas() >= 10:
+        if menu == 1: 
+            tipo=input("Ingrese el tipo de mascota (felino o canino): ")  
+            if tipo=='felino':
+                if g>=7:
+                    print("No hay espacio dispnible...")
+                else:
+
+                    pass
+            if tipo=='canino':
+                    pass
+            if servicio_hospitalario.verNumeroMascotas() >= 7:
                 print("No hay espacio dispnible...")
                 continue
             historia = int(input(" ingrese la historia clinica de la mascota: "))
             if servicio_hospitalario.verificarExiste(historia) == False:
                 nombre=input("Ingrese el nombre de la mascota: ")
-                tipo=input("Ingrese el tipo de mascota (felino o canino): ")
+               
+              
+
                 peso=int(input("Ingrese el peso de la mascota: "))
                 fecha=input("Ingrese la fecha de ingreso (dia/mes/año): ")
-                medicamento=Medicamento()
-                medicamento.asignarNombre(input("Ingrese nombre del medicamento: "))
-                medicamento.asignarDosis(int(input("Ingrese dosis del medicamento: ")))
+
+                cdm= int(input('ingrese cantidad de medicamentos de la mascota'))
+                for i in (0,cdm):
+                    medicamento=Medicamento()
+                    medicamento.asignarNombre(input("Ingrese nombre del medicamento: "))
+                    medicamento.asignarDosis(int(input("Ingrese dosis del medicamento: ")))
+
                 mas = Mascota()
                 mas.asignarNombre(nombre)
                 mas.asignarHistoria(historia)
